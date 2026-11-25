@@ -1,12 +1,10 @@
 import 'package:flutter/material.dart';
 
-
 class OutputPage extends StatelessWidget {
   final String firstName;
   final String lastName;
   final String gender;
   final String department;
-
 
   const OutputPage({
     super.key,
@@ -20,21 +18,37 @@ class OutputPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text("output page"),
+        title: const Text("Student Details"),
         centerTitle: true,
+        backgroundColor: Colors.blue,
       ),
+
       body: Padding(
-        padding: const EdgeInsets.all(16.0),
+        padding: const EdgeInsets.all(20),
         child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Text("First Name: $firstName", style: const TextStyle(fontSize: 18)),
-            const SizedBox(height: 8),
-            Text("Last Name: $lastName", style: const TextStyle(fontSize: 18)),
-            const SizedBox(height: 8),
-            Text("Gender: $gender", style: const TextStyle(fontSize: 18)),
-            const SizedBox(height: 8),
-            Text("Department: $department", style: const TextStyle(fontSize: 18)),
+            const Icon(
+              Icons.person,
+              size: 80,
+              color: Colors.blue,
+            ),
+
+            const SizedBox(height: 20),
+
+            Card(
+              child: Padding(
+                padding: const EdgeInsets.all(20),
+                child: Column(
+                  children: [
+                    Text("Name: $firstName $lastName"),
+                    const Divider(),
+                    Text("Gender: $gender"),
+                    const Divider(),
+                    Text("Department: $department"),
+                  ],
+                ),
+              ),
+            ),
           ],
         ),
       ),
